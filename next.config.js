@@ -12,7 +12,33 @@ const nextConfig = {
     ]
   },
   images: {
-    domains: ['edgio-community-ecommerce-api-example-default.layer0-limelight.link'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'edgio-community-ecommerce-api-example-default.layer0-limelight.link',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'simpletire.s3.amazonaws.com',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.simpletire.com',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'uat-static-assets.thriveworks.com',
+        pathname: '**',
+      },
+    ],
   },
 }
 
