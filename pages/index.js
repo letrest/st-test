@@ -1,6 +1,18 @@
+import Image from 'next/image'
 const Home = () => {
   return (
     <>
+      <div width="200">
+        <img src="/broken.svg" alt='internal sample svg'/>
+        <img src="/sample-jpeg.jpg" alt='internal sample jpeg'/>
+        <img src="https://picsum.photos/200" alt='external sample jpeg'/>
+        <img src="https://images.simpletire.com/image/upload/v1596765107/manf-logos/107b.svg" alt='external sample svg'/>
+        <Image src="/sample-jpeg.jpg" width={200} height={200} alt="internal sample jpeg in next image component"/>
+        <Image src="/broken.svg" width={200} height={200} alt="internal sample svg in next image component"/>
+        <Image src="https://images.simpletire.com/image/upload/v1596765107/manf-logos/107b.svg" width={200} height={200} alt="external sample svg in next image component"/> 
+        <Image src ="https://simpletire.s3.amazonaws.com/promotions/special/2898-Continental%20cash%20back%20325x167.png" width={200} height={200} alt="external sample png in next image component"/>
+        <Image src ="https://uat-static-assets.thriveworks.com/thriveworks/providers/Helen_Sharpe_1708095830219/567964.jpg" width={200} height={200} quality={75} alt="external sample jpg in next image component"/> 
+      </div>
       <section className="px-8 py-4 text-center text-white">
         <p>This example uses Next.js 14 with the Pages router and is powered by Edgio v7.</p>
       </section>
