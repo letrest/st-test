@@ -1,10 +1,7 @@
-// This file was automatically added by edgio deploy.
-// You should commit this file to source control.
 import { nextRoutes } from '@edgio/next'
 import { Router } from '@edgio/core/router'
 
 export default new Router()
-  // NextRoutes automatically adds routes for all Next.js pages and their assets
   .use(nextRoutes)
   .match('/edgio-api/:path*', {
     caching: { max_age: '86400s', stale_while_revalidate: '31536000s', bypass_client_cache: true },
@@ -19,3 +16,39 @@ export default new Router()
     },
     origin: { set_origin: 'api' },
   })
+  .if(
+    {
+      edgeControlCriteria: {
+        in: [{ "request.path": "extension" }, ["jpg", "jpeg", "pjpg", "pjpeg", "png", "ppng", "webp", "tiff", "tif"]],
+      }
+    },
+    {
+      caching: { cache_key: { exclude_all_query_params: true } },
+      response: { optimize_images: true }
+    }
+  )
+  .if(
+    {
+      edgeControlCriteria: {
+        in: [{ "request.path": "extension" }, ["svg", "js", "xml"]],
+      }
+    },
+    {
+      response: { optimize_images: false }
+    }
+  )
+  .get(/.*\\.svg.*/, {
+    response: { optimize_images: false }
+  })
+  .if(
+    {
+      edgeControlCriteria: {
+        "=~": [{ "request.origin_query": "url" }, ".*\\.svg.*"],
+      },
+    },
+    { response: { optimize_images: false } }
+  )
+  .get(":path+", {
+    response: { optimize_images: false }
+  })
+  
