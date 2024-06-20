@@ -12,6 +12,7 @@ const Home = () => {
         <Image src="https://images.simpletire.com/image/upload/v1596765107/manf-logos/107b.svg" width={200} height={200} alt="external sample svg in next image component"/> 
         <Image src ="https://simpletire.s3.amazonaws.com/promotions/special/2898-Continental%20cash%20back%20325x167.png" width={200} height={200} alt="external sample png in next image component"/>
         <Image src ="https://uat-static-assets.thriveworks.com/thriveworks/providers/Helen_Sharpe_1708095830219/567964.jpg" width={200} height={200} quality={75} alt="external sample jpg in next image component"/> 
+        <Image src="https://uat-static-assets.thriveworks.com/thriveworks/providers/about/89421c91-a83a-4307-9bf5-d50387fc2037.jpg" width={200} height={200} quality={75} alt="another external jpg in next image component"/> 
       </div>
       <section className="px-8 py-4 text-center text-white">
         <p>This example uses Next.js 14 with the Pages router and is powered by Edgio v7.</p>

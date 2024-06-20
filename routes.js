@@ -27,28 +27,28 @@ export default new Router()
       response: { optimize_images: true }
     }
   )
-  .if(
-    {
-      edgeControlCriteria: {
-        in: [{ "request.path": "extension" }, ["svg", "js", "xml"]],
-      }
-    },
-    {
-      response: { optimize_images: false }
-    }
-  )
-  .get(/.*\\.svg.*/, {
-    response: { optimize_images: false }
-  })
-  .if(
-    {
-      edgeControlCriteria: {
-        "=~": [{ "request.origin_query": "url" }, ".*\\.svg.*"],
-      },
-    },
-    { response: { optimize_images: false } }
-  )
-  .get(":path+", {
-    response: { optimize_images: false }
-  })
+  // .if(
+  //   {
+  //     edgeControlCriteria: {
+  //       in: [{ "request.path": "extension" }, ["svg", "js", "xml"]],
+  //     }
+  //   },
+  //   {
+  //     response: { optimize_images: false }
+  //   }
+  // )
+  // .get(/.*\\.svg.*/, {
+  //   response: { optimize_images: false }
+  // })
+  // .if(
+  //   {
+  //     edgeControlCriteria: {
+  //       "=~": [{ "request.origin_query": "url" }, ".*\\.svg.*"],
+  //     },
+  //   },
+  //   { response: { optimize_images: false } }
+  // )
+  // .get(":path+", {
+  //   response: { optimize_images: false }
+  // })
   
